@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Employee.Domain;
 using Employee.Domain.Entities;
@@ -13,8 +10,8 @@ namespace Employee.Infrastructure
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private bool _isDisposed = false;
-        private DatabaseContext _context;
+        private bool _isDisposed;
+        private readonly DatabaseContext _context;
         private IBaseRepository<SalesOrder> _salesOrders;
         private IBaseRepository<Customer> _customers;
 
